@@ -1,0 +1,61 @@
+# Pre - Production Phase:
+Conceptual planning of the game. Requirments such as Shapes, assets and Game Engine was decided.
+Downloading the Assets.
+
+# Development Phase:
+
+- CREATION OF BASIC NODES AND SCENES
+1. Created Node Player. Added texture to it.
+2. Created Node Meteor. Added texture to it.
+3. Created Scene Level. Added texture to it.
+4. Added Meteor and Player to the Level Scene.
+5. Added Movement to the Player. Experimented with the GDScript.
+   CODE:
+extends CharacterBody2D
+
+@export var speed: int = 500 # Declared a global variable called speed set to 400 value.
+
+func _ready() -> void:# Called when the node enters the scene tree for the first time.
+	position = Vector2(600,650) # Starting position of the ship.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	position += vector2(1,0) * 50 * delta
+
+6. Added Input maps to the Engine (WASD). Added Inputs to the Player node.
+   UPDATED CODE:
+extends CharacterBody2D
+
+@export var speed: int = 500 # Declared a global variable called speed set to 400 value.
+
+func _ready() -> void:# Called when the node enters the scene tree for the first time.
+	position = Vector2(600,650) # Starting position of the ship.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	var direction = Input.get_vector("left","right","up","down")
+	position += direction * speed * delta
+
+- PHYSICS AND COLLISION
+1. Created a node CollisionPolygon2D and applied polygon shape to it.
+2. Created a Node2D names Borders and Applied Child node StaticBody2D
+3. Applied CollisionShape2D to the StaticBody2D node for creating collision borders.
+4. Updated code so that CharacterBody2D is used properly and velocity variable is replaced with position variable
+   UPDATED CODE:
+extends CharacterBody2D
+
+@export var speed: int = 500 # Declared a global variable called speed set to 400 value.
+
+func _ready() -> void:# Called when the node enters the scene tree for the first time.
+	position = Vector2(600,650) # Starting position of the ship.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	var direction = Input.get_vector("left","right","up","down")
+	velocity = direction * speed # Inbuilt uses delta
+	move_and_slide()
+
+5. 
