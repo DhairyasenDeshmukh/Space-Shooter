@@ -58,4 +58,10 @@ func _process(delta: float) -> void:
 	velocity = direction * speed # Inbuilt uses delta
 	move_and_slide()
 
-5. 
+5. Converted the type of Meteor node to Area2D for collision detection with Laser / Ship
+6. Added Child node CollisionPolygon2D
+7. Changing the script of the Meteor node
+8. Connected body_entered(body: Node2D) Signal to the script.
+9. Created a scene called Laser. Added Sprite2D and CollisionShape2D to it.
+10. Created a Timer node in the Level scene. Updated to Autostart in the inspector and attatched it to blank script to timeout signal. Created a script where it prints "Meteor" after every second.
+
