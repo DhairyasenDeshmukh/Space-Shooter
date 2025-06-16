@@ -65,3 +65,6 @@ func _process(delta: float) -> void:
 9. Created a scene called Laser. Added Sprite2D and CollisionShape2D to it.
 10. Created a Timer node in the Level scene. Updated to Autostart in the inspector and attatched it to blank script to timeout signal. Created a script where it prints "Meteor" after every second.
 
+# ADDING METEOR: CREATING SCENES VIA SCRIPT AND RANDOMNESS
+
+
