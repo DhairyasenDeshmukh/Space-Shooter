@@ -1,0 +1,72 @@
+[gd_scene load_steps=4 format=3 uid="uid://08t5iwtjjjph"]
+
+[ext_resource type="Script" uid="uid://dw4145ytl64mt" path="res://Scenes/ui.gd" id="1_nf4gj"]
+[ext_resource type="FontFile" uid="uid://h8nq0a0hs43r" path="res://assests/Bonus/kenvector_future_thin.ttf" id="1_qdvrb"]
+[ext_resource type="Texture2D" uid="uid://dooga5hlhe8vg" path="res://assests/PNG/UI/playerLife2_orange.png" id="3_nf4gj"]
+
+[node name="UI" type="CanvasLayer" groups=["UI"]]
+script = ExtResource("1_nf4gj")
+
+[node name="MarginContainer1" type="MarginContainer" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -35.5
+offset_right = 35.5
+offset_bottom = 57.0
+grow_horizontal = 2
+theme_override_constants/margin_top = 10
+
+[node name="Label" type="Label" parent="MarginContainer1"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("1_qdvrb")
+theme_override_font_sizes/font_size = 50
+text = "0"
+horizontal_alignment = 1
+
+[node name="MarginContainer2" type="MarginContainer" parent="."]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -40.0
+offset_right = 181.0
+grow_vertical = 0
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 15
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer2"]
+layout_mode = 2
+
+[node name="TextureRect5" type="TextureRect" parent="MarginContainer2/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("3_nf4gj")
+stretch_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer2/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("3_nf4gj")
+stretch_mode = 2
+
+[node name="TextureRect2" type="TextureRect" parent="MarginContainer2/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("3_nf4gj")
+stretch_mode = 2
+
+[node name="TextureRect3" type="TextureRect" parent="MarginContainer2/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("3_nf4gj")
+stretch_mode = 2
+
+[node name="TextureRect4" type="TextureRect" parent="MarginContainer2/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("3_nf4gj")
+stretch_mode = 2
+
+[node name="ScoreTimer" type="Timer" parent="."]
+autostart = true
+
+[connection signal="timeout" from="ScoreTimer" to="." method="_on_score_timer_timeout"]

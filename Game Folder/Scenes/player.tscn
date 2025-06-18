@@ -1,0 +1,31 @@
+[gd_scene load_steps=6 format=3 uid="uid://irms3veh6ox0"]
+
+[ext_resource type="Script" uid="uid://bpt7inb37ef72" path="res://Scenes/player.gd" id="1_cvnsp"]
+[ext_resource type="Texture2D" uid="uid://ikc45utkkp7i" path="res://assests/PNG/playerShip2_orange.png" id="1_v0iea"]
+[ext_resource type="AudioStream" uid="uid://coauqcxd6epth" path="res://assests/Bonus/sfx_laser2.ogg" id="3_6t5aa"]
+[ext_resource type="AudioStream" uid="uid://cu48tiupvbuyi" path="res://assests/Bonus/sfx_shieldDown.ogg" id="4_vgqql"]
+[ext_resource type="AudioStream" uid="uid://bgkkunu3sc57x" path="res://assests/Bonus/8-bit-game-158815.mp3" id="5_fkybt"]
+
+[node name="Player" type="CharacterBody2D"]
+collision_mask = 6
+script = ExtResource("1_cvnsp")
+
+[node name="PlayerImage" type="Sprite2D" parent="."]
+position = Vector2(0, -7)
+texture = ExtResource("1_v0iea")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-4, -45, 3, -45, 11, -26, 46, -6, 55, -2, 38, 27, 1, 33, -39, 28, -57, -1, -45, -6, -13, -24)
+
+[node name="LaserSpawnPoint" type="Marker2D" parent="."]
+position = Vector2(0, -75)
+
+[node name="LaserSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_6t5aa")
+
+[node name="DamageSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_vgqql")
+
+[node name="GameMusic" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_fkybt")
+autoplay = true

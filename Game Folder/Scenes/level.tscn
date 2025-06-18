@@ -1,0 +1,62 @@
+[gd_scene load_steps=8 format=3 uid="uid://cbgpb7jal43ya"]
+
+[ext_resource type="Texture2D" uid="uid://dvljo1ne2q4mm" path="res://assests/Backgrounds/blue.png" id="1_k5f4k"]
+[ext_resource type="Script" uid="uid://b6jv3mngdhxqf" path="res://Scenes/level.gd" id="1_wqkje"]
+[ext_resource type="PackedScene" uid="uid://irms3veh6ox0" path="res://Scenes/player.tscn" id="2_6phgx"]
+[ext_resource type="Script" uid="uid://0o5l0rqlewbb" path="res://Scenes/timer.gd" id="5_0f350"]
+[ext_resource type="PackedScene" uid="uid://08t5iwtjjjph" path="res://Scenes/ui.tscn" id="5_wqkje"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6phgx"]
+size = Vector2(102.5, 848)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_81xng"]
+size = Vector2(1333, 84)
+
+[node name="Level" type="Node2D"]
+script = ExtResource("1_wqkje")
+
+[node name="BG" type="Sprite2D" parent="."]
+position = Vector2(655, 357)
+scale = Vector2(5.57813, 3.24219)
+texture = ExtResource("1_k5f4k")
+
+[node name="Player" parent="." instance=ExtResource("2_6phgx")]
+position = Vector2(615, 557)
+
+[node name="Borders" type="Node2D" parent="."]
+metadata/_edit_lock_ = true
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Borders"]
+collision_layer = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Borders/StaticBody2D"]
+position = Vector2(-30.5, 357)
+shape = SubResource("RectangleShape2D_6phgx")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Borders/StaticBody2D"]
+position = Vector2(1320.75, 356)
+shape = SubResource("RectangleShape2D_6phgx")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Borders/StaticBody2D"]
+position = Vector2(630.5, -35)
+shape = SubResource("RectangleShape2D_81xng")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Borders/StaticBody2D"]
+position = Vector2(631, 756)
+shape = SubResource("RectangleShape2D_81xng")
+
+[node name="MeteorTimer" type="Timer" parent="."]
+wait_time = 0.5
+autostart = true
+script = ExtResource("5_0f350")
+
+[node name="Meteors" type="Node2D" parent="."]
+metadata/_edit_lock_ = true
+
+[node name="Lasers" type="Node2D" parent="."]
+metadata/_edit_lock_ = true
+
+[node name="UI" parent="." instance=ExtResource("5_wqkje")]
+
+[connection signal="laser" from="Player" to="." method="_on_player_laser"]
+[connection signal="timeout" from="MeteorTimer" to="." method="_on_timer_timeout"]
