@@ -1,8 +1,8 @@
-# Space-Shooter
+# Meteor Blitz: Space Survival
 
 - Download the game from here: https://dhairyasen-deshmukh.itch.io/space-shooter
 
-Space Shooter is a simple 2D arcade-style game built using the Godot Engine
+Meteor Blitz: Space Survival is a simple 2D arcade-style game built using the Godot Engine
 , designed as a beginner-friendly project to learn the basics of game development, scene creation, scripting, and asset management in Godot. The player controls a spaceship that can shoot enemies in space while avoiding collisions.
 
 This project showcases core concepts such as:
