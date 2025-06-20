@@ -1,6 +1,6 @@
 # Meteor Blitz: Space Survival
 
-<iframe frameborder="0" src="https://itch.io/embed/3653147?linkback=true&amp;dark=true" width="552" height="167"><a href="https://dhairyasen-deshmukh.itch.io/meteorblitz">Meteor Blitz: Space Survival by Dhairyasen Deshmukh</a></iframe>
+
 
 - Download the game from here: https://dhairyasen-deshmukh.itch.io/meteorblitz
   
